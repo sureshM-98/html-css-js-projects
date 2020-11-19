@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Sliding Landing Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="hero">
+            <div class="navbar">
+                <img src="assets/logo.png" alt="logo" class="logo">
+                <div class="user">
+                    <button type="button">Explore</button>
+                    <img src="assets/user.png" alt="user">
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="info">
+                    <h1>Discover</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, saepe omnis facilis reprehenderit velit quaerat incidunt rem! Et, vero hic minima iusto, sit est voluptates ratione saepe suscipit architecto quibusdam.</p>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+
+            <div class="slider">
+                <img src="assets/left-arrow.png" alt="arrow" id="prev">
+                <div class="preview">
+                    <img src="assets/small1.png" alt="images" class="active thumbnail">
+                    <img src="assets/small2.png" alt="images" class="thumbnail">
+                    <img src="assets/small3.png" alt="images" class="thumbnail">
+                    <img src="assets/small4.png" alt="images" class="thumbnail">
+                    <img src="assets/small5.png" alt="images" class="thumbnail">
+                </div>
+                <img src="assets/right-arrow.png" alt="arrow" id="next">
+            </div>
+
+        </div>
+
+
+        <script>
+            var prev = document.getElementById('prev');
+            var next = document.getElementById('next');
+            var thumbnail = document.getElementsByClassName('thumbnail');
+            var hero = document.getElementById('hero');
+
+            var backgroungImg = new Array(
+                "assets/bg1.png",
+                "assets/bg2.png",
+                "assets/bg3.png",
+                "assets/bg4.png",
+                "assets/bg5.png",
+            );
+            let i = 0;
+            next.onclick = function() {
+                if(i < 4) {
+                    hero.style.backgroundImage = 'url("'+backgroungImg[i+1]+'")';
+                    thumbnail[i+1].classList.add('active');
+                    thumbnail[i].classList.remove('active');
+                    i++;
+                }
+            }
+
+            prev.onclick = function () {
+                if (i > 0) {
+                    hero.style.backgroundImage = 'url("' + backgroungImg[i - 1] + '")';
+                    thumbnail[i - 1].classList.add('active');
+                    thumbnail[i].classList.remove('active');
+                    i--;
+                }
+            }
+            
+
+        </script>
+    </body>
+</html>
